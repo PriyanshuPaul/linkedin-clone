@@ -1,0 +1,19 @@
+.header-option{
+padding: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+color: gray;
+cursor: pointer;
+}
+.header-option:hover{
+    color: black;
+}
+.header-option > h1{
+    font-size: 0.8rem;
+}
+.header-option-icon{
+    object-fit: contain;
+    height: 25px !important;
+    width: 25px !important;
+}

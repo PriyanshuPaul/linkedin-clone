@@ -8,6 +8,7 @@
     top: 0;
     position: sticky;
     z-index: 999;
+    background-color: white !important;
 }
 .header-left{
     display: flex;
@@ -25,7 +26,7 @@
     align-items: center;
     border-radius:5px ;
     color: gray;
-    background-color: #f2f2f2;
+    background-color:  #eff5f5;
     height: 20px;
 }
 .header-search > input{

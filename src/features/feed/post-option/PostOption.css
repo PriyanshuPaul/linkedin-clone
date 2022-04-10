@@ -1,0 +1,29 @@
+.post{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin-top: 20px;
+
+}
+.post-header{
+    display: flex;
+    margin-bottom: 10px;
+}
+.post-info{
+    margin-left:10px;
+}
+.post-info >h1{
+    font-size: 16px;
+    font-weight: 600;
+}
+.post-info > p{
+    color:gray;
+    font-size: 10px;
+    font-weight: 400;
+}
+.post-body{
+    overflow-wrap:anywhere ;
+}

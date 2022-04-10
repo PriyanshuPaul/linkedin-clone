@@ -26,4 +26,11 @@
 }
 .post-body{
     overflow-wrap:anywhere ;
+    text-align: justify;
+    padding: 10px;
+}
+.post-button{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }

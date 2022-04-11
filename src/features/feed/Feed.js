@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "./Feed.css";
 import CreateIcon from "@material-ui/icons/Create";
 import InputOption from "./input-option/InputOption";
@@ -7,15 +7,45 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import EventIcon from "@material-ui/icons/Event";
 import SubjectIcon from "@material-ui/icons/Subject";
 import PostOption from "./post-option/PostOption";
+import { db } from '../../firebase';
+import firebase from 'firebase/compat/app';
+
 function Feed() {
+    
+    const [posts, setPosts] = useState([]);
+    const [input, setInput] = useState('');
+
+    useEffect(()=>{
+        db.collection("posts").orderBy('timestamp','desc').onSnapshot(snapshot=>{
+            setPosts(snapshot.docs.map(doc=>(
+                {
+                    id:doc.id,
+                    data:doc.data()
+                }
+            )))
+        })
+    },[])
+    
+    const sendPost=(e)=>{
+        e.preventDefault();
+        db.collection('posts').add({
+            name:'Priyanshu Paul',
+            description:'This is a test',
+            message:input,
+            photo:'',
+            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+        })
+        setInput("")
+    };
+    
     return (
         <div className="feed">
             <div className="feed-input-container">
                 <div className="feed-input">
                     <CreateIcon />
                     <form>
-                        <input type="text" placeholder="Start a Post" />
-                        <button type="submit">Send</button>
+                        <input type="text" value={input} onChange={e=>setInput(e.target.value)} placeholder="Start a Post" />
+                        <button type="submit" onClick={sendPost}>Send</button>
                     </form>
                 </div>
                 <div className="feed-input-options">
@@ -29,22 +59,18 @@ function Feed() {
                     />
                 </div>
             </div>
-            <PostOption
-                name="Priyanshu Paul"
-                description="This is a test"
-                message="Hello World!"
-            />
-            <PostOption
-                name="Lorem Ipsum"
-                description="Text Generator"
-                message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                It has survived not only five centuries, but also the leap into electronic typesetting, 
-                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
-                 publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-            />
+            {posts.map(({id,
+                data:{name,description,message,photo}
+            })=>(
+                <PostOption
+                key={id}
+                name={name}
+                description={description}
+                message={message}
+                photo={photo}
+                />
+            ))}
+            
         </div>
     );
 }

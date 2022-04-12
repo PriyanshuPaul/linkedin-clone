@@ -23,7 +23,7 @@ function Login() {
                 dispatch(login({
                     email:userAuth.user.email,
                     uid:userAuth.user.uid,
-                    photoURL:photo,
+                    photoUrl:photo,
                     displayName:name
                 }))
             })
@@ -31,6 +31,14 @@ function Login() {
     };
     const loginApp=(e)=>{
         e.preventDefault();
+        auth.signInWithEmailAndPassword(email,password).then(userAuth=>{
+            dispatch(login({
+                email:userAuth.user.email,
+                uid:userAuth.user.uid,
+                photoUrl:userAuth.user.photoURL,
+                displayName:userAuth.user.displayName,
+            }))
+        }).catch((error)=>alert(error ))
     }
   return (
     <div className="login">

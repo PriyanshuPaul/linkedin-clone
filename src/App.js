@@ -7,6 +7,7 @@ import Feed from './features/feed/Feed';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
+import News from './features/news/News';
 
 function App() {
   const dispatch=useDispatch();
@@ -35,6 +36,7 @@ function App() {
       <div className="app-body">
         <Sidebar/>
         <Feed/>
+        <News/>
       </div>
       )}
     </div>

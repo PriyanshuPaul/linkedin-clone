@@ -1,0 +1,48 @@
+.news{
+    display: flex;
+    flex: 0.2;
+    margin-left:20px;
+    border: 0.1px solid lightgray;
+    border-radius: 10px;
+    height: fit-content;
+    background-color: white;
+    top:80px;
+    position: sticky;
+    flex-direction: column;
+}
+.news-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.news-header > h1{
+    font-size:16px;
+    font-weight:600;
+}
+.news-article{
+display: flex;
+padding: 10px;
+}
+.news-article :hover{
+    cursor: pointer;
+    background: whitesmoke;
+}
+.article-right{
+    margin-left:2px;
+}
+.article-right > h2{
+    font-size: 14px;
+    font-weight: 500;
+}
+.article-right >p{
+    font-weight: 300;
+    color: gray;
+    font-size: 12px;
+}
+.article-left{
+    color:#7070f5 !important;
+}
+.article-left > .MuiSvgIcon-root{
+    font-size: 15px;
+}

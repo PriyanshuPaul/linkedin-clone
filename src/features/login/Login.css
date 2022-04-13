@@ -33,6 +33,11 @@
     background-color: #0074b1;
     border-radius: 5px;
 }
+.login > form > button:hover{
+    cursor: pointer;
+
+}
+
 .login-register{
     cursor: pointer;
     color: #0177b7;

@@ -11,7 +11,7 @@ function PostOption({name,description,message,photo}) {
   return (
     <div className="post">
         <div className="post-header">
-            <Avatar/>
+            <Avatar src="photo">{name[0]}</Avatar>
             <div className="post-info">
                 <h1>{name}</h1>
                 <p>{description}</p>

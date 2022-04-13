@@ -16,7 +16,7 @@ function Sidebar() {
     <div className="sidebar">
         <div className="sidebar-top">
             <img src="https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="cover-pic"/>
-            <Avatar className='sidebar-avatar'src={user?.profileUrl}>{user?.email[0]}</Avatar>
+            <Avatar className='sidebar-avatar'src={user?.photoUrl}>{user?.email[0]}</Avatar>
             <h1>{user.displayName}</h1>
             <h2>{user.email}</h2>
         </div>

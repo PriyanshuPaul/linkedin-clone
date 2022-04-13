@@ -7,11 +7,16 @@ import SendIcon from '@material-ui/icons/Send';
 
 import './PostOption.css'
 import InputOption from "../input-option/InputOption";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../userSlice";
+
 const PostOption=forwardRef(({name,description,message,photo},ref) =>{
+  const user=useSelector(selectUser)
   return (
     <div ref={ref} className="post">
         <div className="post-header">
-            <Avatar src="photo">{name[0]}</Avatar>
+        <Avatar src={photo}></Avatar>
+
             <div className="post-info">
                 <h1>{name}</h1>
                 <p>{description}</p>

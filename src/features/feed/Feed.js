@@ -9,9 +9,11 @@ import SubjectIcon from "@material-ui/icons/Subject";
 import PostOption from "./post-option/PostOption";
 import { db } from '../../firebase';
 import firebase from 'firebase/compat/app';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../userSlice';
 
 function Feed() {
-    
+    const user=useSelector(selectUser)
     const [posts, setPosts] = useState([]);
     const [input, setInput] = useState('');
 
@@ -29,10 +31,10 @@ function Feed() {
     const sendPost=(e)=>{
         e.preventDefault();
         db.collection('posts').add({
-            name:'Priyanshu Paul',
-            description:'This is a test',
+            name:user.displayName,
+            description:user.email,
             message:input,
-            photo:'',
+            photo:user.photoUrl || "",
             timestamp:firebase.firestore.FieldValue.serverTimestamp(),
         })
         setInput("")

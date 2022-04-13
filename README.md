@@ -3,6 +3,9 @@ LinkedIn Clone build with ReactJS,Redux with Firebase Authentication
 ## Live Project Link
 https://linkedin-clone-2f496.web.app
 
+## Clone the repository
+
+
 ### `yarn start`
 Runs the app in the development mode.<br />
 

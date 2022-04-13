@@ -1,8 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Live Project Link
 
-## Available Scripts
-
-In the project directory, you can run:
+https://linkedin-clone-2f496.web.app
 
 ### `npm start`
 
